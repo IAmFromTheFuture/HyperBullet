@@ -1,13 +1,15 @@
-public static class UIDefines {
-    public enum PanelState {
+public static class UIDefines
+{
+    public enum PanelState
+    {
         IN_ACTIVE,
         ACTIVE
     }
 
-    public enum PanelType {
+    public enum PanelName
+    {
         NONE,
-        TITLE,
-        WELCOME,
-        NAMES
+        MAIN_MENU,
+        CREDITS
     }
 }

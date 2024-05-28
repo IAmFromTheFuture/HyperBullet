@@ -5,13 +5,12 @@ namespace HB.Core.Controllers
 {
     public abstract class UIPanel : MonoBehaviour
     {
-
-        [SerializeField] private PanelType _panel;
+        [SerializeField] private PanelName _panel;
         [SerializeField] private PanelState _panelState;
 
         private bool _isInitialized = false;
 
-        public PanelType Panel => _panel;
+        public PanelName Panel => _panel;
 
         public PanelState PanelState
         {
@@ -48,6 +47,15 @@ namespace HB.Core.Controllers
         private void OnDisable()
         {
             unbind();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)
+                && !IsBusyWithOperation)
+            {
+                OnNativeBackClicked();
+            }
         }
 
         private void initialize()
@@ -95,5 +103,6 @@ namespace HB.Core.Controllers
 
         protected virtual void OnPanelShow() { }
         protected virtual void OnPanelHide() { }
+        protected virtual void OnNativeBackClicked() { }
     }
 }

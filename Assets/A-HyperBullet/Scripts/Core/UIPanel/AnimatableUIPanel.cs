@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace HB.Core.Controllers.Animatable
+namespace HB.Core.Controllers
 {
     public abstract class AnimatableUIPanel : UIPanel
     {
