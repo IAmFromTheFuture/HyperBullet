@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using HB.Core.Controllers;
+using Core.Controllers;
 using static UIDefines;
 
 public class MainMenu : AnimatableUIPanel

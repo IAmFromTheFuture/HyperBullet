@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using HB.Core.Controllers;
+using Core.Controllers;
 
 public class Credits : AnimatableUIPanel
 {

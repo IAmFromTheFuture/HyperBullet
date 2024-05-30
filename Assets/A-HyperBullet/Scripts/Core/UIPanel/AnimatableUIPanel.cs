@@ -1,8 +1,8 @@
-using HB.Utilities;
+using Core.Utilities;
 using System;
 using UnityEngine;
 
-namespace HB.Core.Controllers
+namespace Core.Controllers
 {
     public abstract class AnimatableUIPanel : UIPanel
     {

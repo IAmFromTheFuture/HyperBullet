@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UIDefines;
 
-namespace HB.Core.Controllers
+namespace Core.Controllers
 {
     public abstract class UIPanel : MonoBehaviour
     {

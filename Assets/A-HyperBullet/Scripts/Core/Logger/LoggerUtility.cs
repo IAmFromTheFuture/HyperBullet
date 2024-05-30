@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace HB.Utilities
+namespace Core.Utilities
 {
     public static class LoggerUtility
     {

@@ -1,9 +1,9 @@
 using UnityEngine;
-using HB.Utilities;
+using Core.Utilities;
 using System.Collections.Generic;
 using static UIDefines;
 
-namespace HB.Core.Controllers
+namespace Core.Controllers
 {
     #region DATA MODELS
     public class PanelDataForQueue
