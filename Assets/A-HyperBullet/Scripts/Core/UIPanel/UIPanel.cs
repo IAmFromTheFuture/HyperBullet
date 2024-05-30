@@ -94,6 +94,7 @@ namespace HB.Core.Controllers
 
             gameObject.SetActive(false);
 
+            UIController.Instance.HideDeactivatedPanel(this);
             UIController.Instance.CheckCurrentOperations();
         }
 

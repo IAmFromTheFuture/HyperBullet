@@ -1,3 +1,5 @@
+using HB.Utilities;
+using System;
 using UnityEngine;
 
 namespace HB.Core.Controllers
@@ -11,6 +13,8 @@ namespace HB.Core.Controllers
 
         public bool HasEntry => _hasEntry;
         public bool HasExit => _hasExit;
+
+        private Action _onAnimationCompleted;
 
         protected override void Awake()
         {
@@ -30,13 +34,15 @@ namespace HB.Core.Controllers
                 return;
             }
 
+            gameObject.SetActive(true);
             IsBusyWithOperation = true;
 
-            gameObject.SetActive(true);
             OnPanelShowImmediate();
 
-            float time = 0.25f; // RSHARMA get animation length from clip for time
-            Invoke(nameof(show), time);
+            _anim.SetTrigger("Show");
+            _onAnimationCompleted = show;
+
+            Invoke(nameof(waitForTransition), 0.2f);
         }
 
         private void show()
@@ -61,8 +67,28 @@ namespace HB.Core.Controllers
 
             OnPanelHideImmediate();
 
-            float time = 0.25f; // RSHARMA get animation length from clip for time
-            Invoke("hide", time);
+            _anim.SetTrigger("Hide");
+            _onAnimationCompleted = hide;
+
+            Invoke(nameof(waitForTransition), 0.2f);
+        }
+
+        private void waitForTransition()
+        {
+            float timeToWait = 0.0f;
+            AnimatorClipInfo[] _ = _anim.GetCurrentAnimatorClipInfo(0);
+
+            if (_.Length > 0)
+            {
+                timeToWait = _[0].clip.length;
+                LoggerUtility.Log("Time to wait == " + timeToWait);
+            }
+
+            MEC.Timing.CallDelayed(timeToWait, () =>
+            {
+                _onAnimationCompleted();
+                _onAnimationCompleted = null;
+            });
         }
 
         private void hide()
@@ -72,8 +98,10 @@ namespace HB.Core.Controllers
             IsBusyWithOperation = false;
             gameObject.SetActive(false);
 
+            UIController.Instance.HideDeactivatedPanel(this);
             UIController.Instance.CheckCurrentOperations();
         }
+
 
         /// <summary>
         /// Method that gets called immediately after Show but before the animation starts.

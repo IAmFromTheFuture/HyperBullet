@@ -166,6 +166,10 @@ namespace HB.Core.Controllers
         private void deactivatePanel(UIPanel panel)
         {
             panel.Hide();
+        }
+
+        public void HideDeactivatedPanel(UIPanel panel)
+        {
             panel.transform.SetParent(_inActiveCanvas);
         }
 
