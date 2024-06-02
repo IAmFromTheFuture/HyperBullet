@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Core.Controllers;
-using static UIDefines;
+using static Defines.UI;
 
 public class MainMenu : AnimatableUIPanel
 {

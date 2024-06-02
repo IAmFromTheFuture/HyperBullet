@@ -1,6 +1,6 @@
-using Core.Utilities;
 using System;
 using UnityEngine;
+using Core.Utilities;
 
 namespace Core.Controllers
 {

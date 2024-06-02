@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UIDefines;
+using static Defines.UI;
 
 namespace Core.Controllers
 {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Core.Utilities;
 using System.Collections.Generic;
-using static UIDefines;
+using static Defines.UI;
 
 namespace Core.Controllers
 {
